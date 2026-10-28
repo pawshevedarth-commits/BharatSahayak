@@ -739,7 +739,7 @@ export default function Register() {
       };
 
       // 1. Fetch matched schemes from backend
-      const API_URL = import.meta.env.VITE_API_URL || 'https://bharatsahayak.onrender.com/api';
+      const API_URL = import.meta.env.VITE_API_URL || '/api';
       const matchRes = await axios.post(`${API_URL}/match-schemes`, backendPayload);
       const matchedBackend = matchRes.data;
 

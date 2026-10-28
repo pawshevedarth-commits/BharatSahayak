@@ -215,9 +215,8 @@ async function saveProfileToSupabase(profile) {
     return null;
   }
 
-  // Check if we are accidentally using the old project service role key, fall back to publishable key
-  if (supabaseKey === 'sb_secret_UIp9-CHEaHIlxDXNh3ODNg_Vj6ZVuxT') {
-    supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  if (supabaseKey && supabaseKey.startsWith('sb_secret_')) {
+    supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || supabaseKey;
   }
 
   // Build a broad payload supporting both snake_case and camelCase
@@ -358,8 +357,8 @@ async function saveRecommendationsToSupabase(profileId, matchedSchemes) {
     return null;
   }
 
-  if (supabaseKey === 'sb_secret_UIp9-CHEaHIlxDXNh3ODNg_Vj6ZVuxT') {
-    supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+  if (supabaseKey && supabaseKey.startsWith('sb_secret_')) {
+    supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || supabaseKey;
   }
 
   const payload = {
