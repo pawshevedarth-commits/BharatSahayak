@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Shield, Map, Smartphone, BarChart3, Star, Phone, MessageSquare, CheckCircle } from 'lucide-react';
+import { ArrowRight, Zap, Shield, Map, Smartphone, BarChart3, Phone, MessageSquare, CheckCircle } from 'lucide-react';
 import Hero from '../components/Hero';
 import StatsCounter from '../components/StatsCounter';
 import UserPersona from '../components/UserPersona';
@@ -46,12 +46,7 @@ const FEATURES = [
   },
 ];
 
-const REDROB_STATS = [
-  { value: '₹2.6L Cr', label: 'Annual unclaimed benefits' },
-  { value: '800M+', label: 'Eligible citizens' },
-  { value: '30 min', label: 'Setup time at CSC' },
-  { value: '₹1.37L', label: 'Avg per-person recovery' },
-];
+
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -368,50 +363,7 @@ export default function Home() {
       {/* How it works — Timeline */}
       <Timeline />
 
-      {/* Redrob banner */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl p-10 text-center overflow-hidden"
-            style={{ background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(29, 158, 117, 0.1))', border: '1px solid rgba(124, 58, 237, 0.3)' }}
-          >
-            {/* Background shimmer */}
-            <div className="absolute inset-0 rounded-3xl"
-              style={{ background: 'linear-gradient(135deg, transparent 40%, rgba(107, 63, 160, 0.05) 100%)' }} />
 
-            <div className="relative z-10">
-              <div className="text-5xl mb-4">🏆</div>
-              <div className="badge bg-accent/15 text-accent mb-4 text-sm px-4 py-1.5">
-                <Star size={12} className="fill-accent" /> Redrob Ideathon 2026
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
-                Built for Track 3:{' '}
-                <span className="gradient-text-secondary">AI for Social Impact</span>
-              </h2>
-              <p className="text-white/55 text-lg mb-8 max-w-xl mx-auto">
-                Team Binary Builders — PawanSingh Bhandari & Rahul Bramhankar — solving one of India's biggest public welfare gaps.
-              </p>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                {REDROB_STATS.map(stat => (
-                  <div key={stat.label} className="text-center">
-                    <div className="font-black text-xl gradient-text-primary">{stat.value}</div>
-                    <div className="text-white/40 text-xs mt-1">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <Link to="/about" className="btn-primary inline-flex">
-                Meet Team Binary Builders
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </motion.div>
   );
 }
